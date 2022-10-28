@@ -12,8 +12,8 @@ This demo is still in progress!
 :green_circle: Kotlin 1.7.x with Java 17  
 :green_circle: Maven  
 :green_circle: JUnit 5.x  
-:green_circle: [Mockk](https://mockk.io/) test mocking framework  
-:green_circle: [Kotest Assertions](https://kotest.io/docs/assertions/assertions.html) test assertion framework  
+:green_circle: [Mockk](https://mockk.io/) mocking framework  
+:green_circle: [Kotest Assertions](https://kotest.io/docs/assertions/assertions.html) assertion framework  
 :red_circle: [Koin](https://insert-koin.io/) dependency injection framework  
 :red_circle: "Real" integration tests starting local azure functions container  
 
