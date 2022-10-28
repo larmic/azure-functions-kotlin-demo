@@ -31,7 +31,7 @@
         <!-- testing -->
         <junit-jupiter.version>5.9.1</junit-jupiter.version>
         <mockk.version>1.13.2</mockk.version>
-        <kotest-assertions-core-jvm.version>5.5.2</kotest-assertions-core-jvm.version>
+        <kotest-assertions-core-jvm.version>5.5.3</kotest-assertions-core-jvm.version>
         <koin.version>3.2.2</koin.version>
     </properties>
 
