@@ -5,6 +5,18 @@
 
 This demo is based on [microsoft documentation](https://learn.microsoft.com/en-us/azure/azure-functions/functions-create-first-kotlin-maven?tabs=bash).
 
+This demo is still in progress!
+
+## Technologies
+
+:green_circle: Kotlin 1.7.x with Java 17
+:green_circle: Maven
+:green_circle: JUnit 5.x
+:green_circle: [Mockk](https://mockk.io/) test mocking framework
+:green_circle: [Kotest Assertions](https://kotest.io/docs/assertions/assertions.html) test assertion framework
+:red_circle: [Koin](https://insert-koin.io/) dependency injection framework
+:red_circle: "Real" integration tests starting local azure functions container
+
 ## Prerequisites
 * Java 17
 * Maven >= 3.2

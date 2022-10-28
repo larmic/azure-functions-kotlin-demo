@@ -32,6 +32,7 @@
         <junit-jupiter.version>5.9.1</junit-jupiter.version>
         <mockk.version>1.13.2</mockk.version>
         <kotest-assertions-core-jvm.version>5.5.2</kotest-assertions-core-jvm.version>
+        <koin.version>3.2.2</koin.version>
     </properties>
 
     <dependencies>
@@ -47,6 +48,18 @@
             <groupId>org.jetbrains.kotlin</groupId>
             <artifactId>kotlin-stdlib</artifactId>
             <version>${kotlin.version}</version>
+        </dependency>
+
+        <!-- Dependency injection -->
+        <dependency>
+            <groupId>io.insert-koin</groupId>
+            <artifactId>koin-core</artifactId>
+            <version>${koin.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.insert-koin</groupId>
+            <artifactId>koin-core-jvm</artifactId>
+            <version>${koin.version}</version>
         </dependency>
 
         <!-- Test -->
@@ -196,6 +209,12 @@
                         </fileset>
                     </filesets>
                 </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.0.0-M7</version>
             </plugin>
         </plugins>
     </build>
