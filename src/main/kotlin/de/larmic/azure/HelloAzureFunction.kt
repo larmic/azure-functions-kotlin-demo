@@ -4,7 +4,7 @@ import java.util.*
 import com.microsoft.azure.functions.*
 import com.microsoft.azure.functions.annotation.*
 
-class HelloFunction {
+class HelloAzureFunction {
 
     @FunctionName("hello")
     fun run(

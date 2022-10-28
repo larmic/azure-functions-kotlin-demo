@@ -9,10 +9,10 @@ import org.junit.jupiter.api.Test
 import java.util.Optional
 import java.util.logging.Logger
 
-class HelloFunctionTest {
+class HelloAzureFunctionTest {
 
     // the azure function to test
-    private val azureHelloFunction = HelloFunction()
+    private val helloAzureFunction = HelloAzureFunction()
 
     // request mock with default behavior
     private val requestMock = mockk<HttpRequestMessage<Optional<String>>> {
@@ -31,7 +31,7 @@ class HelloFunctionTest {
     internal fun `call hello endpoint without query param`() {
         every { requestMock.queryParameters } returns emptyMap()
 
-        val response = azureHelloFunction.run(requestMock, executionContextMock)
+        val response = helloAzureFunction.run(requestMock, executionContextMock)
 
         response.status shouldBe HttpStatus.OK
         response.body shouldBe "Hello azure functions!"
@@ -41,7 +41,7 @@ class HelloFunctionTest {
     internal fun `call hello endpoint with query param`() {
         every { requestMock.queryParameters } returns mapOf("name" to "larmic")
 
-        val response = azureHelloFunction.run(requestMock, executionContextMock)
+        val response = helloAzureFunction.run(requestMock, executionContextMock)
 
         response.status shouldBe HttpStatus.OK
         response.body shouldBe "Hello larmic!"
