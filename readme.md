@@ -3,9 +3,8 @@
 [![CI with Maven](https://github.com/larmic/azure-functions-kotlin-demo/actions/workflows/maven.yml/badge.svg)](https://github.com/larmic/azure-functions-kotlin-demo/actions/workflows/maven.yml)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
-This demo is based on [microsoft documentation](https://learn.microsoft.com/en-us/azure/azure-functions/functions-create-first-kotlin-maven?tabs=bash).
-
-This demo is still in progress!
+This demo is based on [microsoft documentation](https://learn.microsoft.com/en-us/azure/azure-functions/functions-create-first-kotlin-maven?tabs=bash) 
+and still in progress!
 
 ## Technologies
 
