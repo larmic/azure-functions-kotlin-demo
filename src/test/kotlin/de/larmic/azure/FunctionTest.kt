@@ -1,46 +1,52 @@
 package de.larmic.azure
 
 import com.microsoft.azure.functions.*
-import org.junit.jupiter.api.Assertions.*;
+import io.mockk.every
+import io.mockk.mockk
+import org.assertj.core.api.Assertions.*
 import org.junit.jupiter.api.Test
-import org.mockito.ArgumentMatchers.any
-import org.mockito.Mockito
-import org.mockito.Mockito.*
 import java.util.Optional
 import java.util.logging.Logger
-import kotlin.collections.HashMap
 
-/**
- * Unit test for Function class.
- */
 class FunctionTest {
 
-    inline fun <reified T : Any> mock() = mock(T::class.java)
+    private val azureFunction = Function()
 
     @Test
-    fun testHttpTrigger() {
-        // Setup
-        val req = mock<HttpRequestMessage<Optional<String>>>()
+    internal fun `call hello endpoint without query param`() {
+        val request = mockk<HttpRequestMessage<Optional<String>>>()
+        val context = mockk<ExecutionContext>()
 
-        val queryParams = HashMap<String, String>()
-        queryParams["name"] = "Azure"
-        doReturn(queryParams).`when`(req).queryParameters
+        every { context.logger } returns Logger.getGlobal()
+        every { request.httpMethod } returns HttpMethod.GET
+        every { request.queryParameters } returns emptyMap()
+        every { request.createResponseBuilder(any()) } answers {
+            val httpStatus = firstArg<HttpStatus>()
+            HttpResponseMessageMock.HttpResponseMessageBuilderMock().status(httpStatus)
+        }
 
-        doReturn(HttpMethod.GET).`when`<HttpRequestMessage<*>>(req).httpMethod
+        val response = azureFunction.run(request, context)
 
-        doAnswer { invocation ->
-            val status = invocation.arguments[0] as HttpStatus
-            HttpResponseMessageMock.HttpResponseMessageBuilderMock().status(status)
-        }.`when`<HttpRequestMessage<*>>(req).createResponseBuilder(any(HttpStatus::class.java))
-
-        val context = mock(ExecutionContext::class.java)
-        doReturn(Logger.getGlobal()).`when`(context).logger
-
-        // Invoke
-        val ret = Function().run(req, context)
-
-        // Verify
-        assertEquals(ret.status, HttpStatus.OK)
+        assertThat(response.status).isEqualTo(HttpStatus.OK)
+        assertThat(response.body).isEqualTo("Hello azure functions!")
     }
 
+    @Test
+    internal fun `call hello endpoint with query param`() {
+        val request = mockk<HttpRequestMessage<Optional<String>>>()
+        val context = mockk<ExecutionContext>()
+
+        every { context.logger } returns Logger.getGlobal()
+        every { request.httpMethod } returns HttpMethod.GET
+        every { request.queryParameters } returns mapOf("name" to "larmic")
+        every { request.createResponseBuilder(any()) } answers {
+            val httpStatus = firstArg<HttpStatus>()
+            HttpResponseMessageMock.HttpResponseMessageBuilderMock().status(httpStatus)
+        }
+
+        val response = azureFunction.run(request, context)
+
+        assertThat(response.status).isEqualTo(HttpStatus.OK)
+        assertThat(response.body).isEqualTo("Hello larmic!")
+    }
 }

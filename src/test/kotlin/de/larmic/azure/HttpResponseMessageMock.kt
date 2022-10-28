@@ -6,12 +6,10 @@ import com.microsoft.azure.functions.*
  * The mock for HttpResponseMessage, can be used in unit tests to verify if the
  * returned response by HTTP trigger function is correct or not.
  */
-class HttpResponseMessageMock(private val httpStatus: HttpStatusType, private val headers: Map<String, String>, private val body: String) : HttpResponseMessage {
-    private val httpStatusCode: Int
-
-    init {
-        this.httpStatusCode = httpStatus.value()
-    }
+class HttpResponseMessageMock(private val httpStatus: HttpStatusType,
+                              private val headers: Map<String, String>,
+                              private val body: String) : HttpResponseMessage {
+    private val httpStatusCode = httpStatus.value()
 
     override fun getStatus(): HttpStatusType {
         return this.httpStatus

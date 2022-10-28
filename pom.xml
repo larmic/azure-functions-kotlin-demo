@@ -17,7 +17,7 @@
         <functions.version>2.1.0</functions.version>
         <functions.plugin.version>1.21.0</functions.plugin.version>
 
-        <!-- java version used by azure functions -->
+        <!-- java version used by azure functions plugin -->
         <java.version>17</java.version>
 
         <maven.compiler.source>17</maven.compiler.source>
@@ -26,35 +26,12 @@
         <functionAppName>test-larmic</functionAppName>
         <functionAppRegion>westeurope</functionAppRegion>
         <functionResourceGroup>java-functions-group</functionResourceGroup>
+
+        <!-- testing -->
+        <junit-jupiter.version>5.9.1</junit-jupiter.version>
+        <mockk.version>1.13.2</mockk.version>
+        <assertj-core.version>3.23.1</assertj-core.version>
     </properties>
-
-    <!--repositories>
-        <repository>
-            <id>maven.snapshots</id>
-            <name>Maven Central Snapshot Repository</name>
-            <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
-            <releases>
-                <enabled>false</enabled>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </repository>
-    </repositories-->
-
-    <!--pluginRepositories>
-        <pluginRepository>
-            <id>maven.snapshots</id>
-            <name>Maven Central Snapshot Repository</name>
-            <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
-            <releases>
-                <enabled>false</enabled>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </pluginRepository>
-    </pluginRepositories-->
 
     <dependencies>
         <!-- Azure Functions Java Library -->
@@ -73,27 +50,21 @@
 
         <!-- Test -->
         <dependency>
-            <groupId>org.jetbrains.kotlin</groupId>
-            <artifactId>kotlin-test</artifactId>
-            <version>${kotlin.version}</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>
-            <version>5.9.1</version>
+            <version>${junit-jupiter.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>org.mockito</groupId>
-            <artifactId>mockito-core</artifactId>
-            <version>4.8.1</version>
+            <groupId>io.mockk</groupId>
+            <artifactId>mockk-jvm</artifactId>
+            <version>${mockk.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>com.nhaarman.mockitokotlin2</groupId>
-            <artifactId>mockito-kotlin</artifactId>
-            <version>2.2.0</version>
+            <groupId>org.assertj</groupId>
+            <artifactId>assertj-core</artifactId>
+            <version>${assertj-core.version}</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
