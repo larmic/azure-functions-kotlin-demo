@@ -17,8 +17,7 @@ class Function {
 
         context.logger.info("HTTP trigger processed a ${request.httpMethod.name} request.")
 
-        val query = request.queryParameters["name"]
-        val name = request.body.orElse(query)
+        val name = request.queryParameters["name"]
 
         name?.let {
             return request
