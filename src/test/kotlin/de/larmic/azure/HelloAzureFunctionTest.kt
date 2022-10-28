@@ -18,7 +18,7 @@ class HelloAzureFunctionTest {
     private val requestMock = mockk<HttpRequestMessage<Optional<String>>> {
         every { httpMethod } returns HttpMethod.GET
         every { createResponseBuilder(any()) } answers {
-            firstArg<HttpStatus>().wrapByHttpResponseMessageBuilderMock()
+            firstArg<HttpStatus>().wrapInHttpResponseMessageBuilderMock()
         }
     }
 
@@ -47,5 +47,5 @@ class HelloAzureFunctionTest {
         response.body shouldBe "Hello larmic!"
     }
 
-    private fun HttpStatus.wrapByHttpResponseMessageBuilderMock() = HttpResponseMessageBuilderMock(this)
+    private fun HttpStatus.wrapInHttpResponseMessageBuilderMock() = HttpResponseMessageBuilderMock(this)
 }
