@@ -5,10 +5,12 @@ import de.larmic.azure.HttpResponseMessageMock.HttpResponseMessageBuilderMock
 import io.kotest.matchers.shouldBe
 import io.mockk.every
 import io.mockk.mockk
+import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
 import java.util.Optional
 import java.util.logging.Logger
 
+@DisplayName("Call hello azure function with")
 class HelloAzureFunctionTest {
 
     // the azure function to test
@@ -28,7 +30,7 @@ class HelloAzureFunctionTest {
     }
 
     @Test
-    internal fun `call hello endpoint without query param`() {
+    internal fun `query parameter is missing`() {
         every { requestMock.queryParameters } returns emptyMap()
 
         val response = helloAzureFunction.run(requestMock, executionContextMock)
@@ -38,7 +40,7 @@ class HelloAzureFunctionTest {
     }
 
     @Test
-    internal fun `call hello endpoint with query param`() {
+    internal fun `query parameter is set`() {
         every { requestMock.queryParameters } returns mapOf("name" to "larmic")
 
         val response = helloAzureFunction.run(requestMock, executionContextMock)
