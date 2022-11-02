@@ -6,13 +6,16 @@ import de.larmic.azure.configuration.InitKoinDependencyInjection
 import de.larmic.azure.service.HelloServiceDelegate
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
+import org.koin.java.KoinJavaComponent.inject
 import java.util.*
 
 class HelloAzureFunction : KoinComponent {
 
-    // start koin dependency injection
+    // Start koin dependency injection using a singleton object
     private val initDI = InitKoinDependencyInjection
 
+    // Injection service as constructor argument does not work at this point
+    // because azure functions need a no-arg-constructor
     private val helloServiceDelegate : HelloServiceDelegate by inject()
 
     @FunctionName("hello")

@@ -7,6 +7,8 @@ import org.koin.dsl.module
 import de.larmic.azure.service.HelloServiceDelegate
 import de.larmic.azure.service.HelloService
 
+// Start koin dependency injection using a singleton object
+// add private val initDI = InitKoinDependencyInjection to azure function class
 object InitKoinDependencyInjection {
     init {
         startKoin {
