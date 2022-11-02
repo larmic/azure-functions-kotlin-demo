@@ -1,16 +1,16 @@
 package de.larmic.azure
 
-import java.util.*
 import com.microsoft.azure.functions.*
 import com.microsoft.azure.functions.annotation.*
+import de.larmic.azure.configuration.InitKoinDependencyInjection
+import de.larmic.azure.service.HelloController
 import org.koin.core.component.KoinComponent
-import org.koin.core.context.startKoin
-import org.koin.core.module.dsl.singleOf
-import org.koin.dsl.module
 import org.koin.core.component.inject
+import java.util.*
 
 class HelloAzureFunction : KoinComponent {
 
+    // start koin dependency injection
     private val initDI = InitKoinDependencyInjection
 
     private val helloController : HelloController by inject()
@@ -27,15 +27,4 @@ class HelloAzureFunction : KoinComponent {
         return helloController.getHello(request, context)
     }
 
-}
-
-object InitKoinDependencyInjection {
-    init {
-        startKoin {
-            modules(module {
-                singleOf(::HelloController)
-                singleOf(::ResponseBodyFactory)
-            })
-        }
-    }
 }

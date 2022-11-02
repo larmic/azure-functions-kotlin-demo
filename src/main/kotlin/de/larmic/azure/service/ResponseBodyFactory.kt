@@ -1,4 +1,4 @@
-package de.larmic.azure
+package de.larmic.azure.service
 
 class ResponseBodyFactory {
 

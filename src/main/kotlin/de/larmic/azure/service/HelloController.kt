@@ -1,4 +1,4 @@
-package de.larmic.azure
+package de.larmic.azure.service
 
 import com.microsoft.azure.functions.ExecutionContext
 import com.microsoft.azure.functions.HttpRequestMessage
