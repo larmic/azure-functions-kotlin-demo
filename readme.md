@@ -34,8 +34,11 @@ $ mvn clean package                 # Like test but also build local artifact
 ### Run functions locally 
 
 ```sh
-# start local functions container using azure-functions-maven-plugin 
+# start local functions container using azure-functions-maven-plugin
 $ mvn azure-functions:run 
+
+# debug local functions container
+$ mvn azure-functions:run -DenableDebug
 
 # http call
 $ curl http://localhost:7071/api/hello?name=larmic
