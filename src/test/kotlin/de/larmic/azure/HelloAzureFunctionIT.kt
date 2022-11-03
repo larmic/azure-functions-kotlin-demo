@@ -10,8 +10,12 @@ import org.junit.jupiter.api.Test
 import java.util.Optional
 import java.util.logging.Logger
 
+/**
+ * This is an integration tests.
+ * TODO find a way to start azure function in a container and call GET {url} instead of mocking!
+ */
 @DisplayName("Call hello azure function with")
-class HelloAzureFunctionTest {
+class HelloAzureFunctionIT {
 
     // the azure function to test
     private val helloAzureFunction = HelloAzureFunction()
