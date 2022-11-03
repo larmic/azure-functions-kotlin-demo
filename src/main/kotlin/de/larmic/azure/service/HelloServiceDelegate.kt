@@ -3,6 +3,6 @@ package de.larmic.azure.service
 // a simple delegate to demonstrate constructor injection by KOIN
 class HelloServiceDelegate(private val helloService: HelloService) {
 
-    fun sayHello(name: String?) = helloService.sayHello(name)
+    infix fun sayHelloTo(name: String?) = helloService.sayHelloTo(name)
 
 }

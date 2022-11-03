@@ -2,6 +2,6 @@ package de.larmic.azure.service
 
 class HelloService {
 
-    fun sayHello(name: String?) = "Hello ${name ?: "azure functions"}!"
+    infix fun sayHelloTo(name: String?) = "Hello ${name ?: "azure functions"}!"
 
 }

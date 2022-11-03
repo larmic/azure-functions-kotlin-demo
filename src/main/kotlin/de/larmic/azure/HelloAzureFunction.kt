@@ -6,7 +6,6 @@ import de.larmic.azure.configuration.InitKoinDependencyInjection
 import de.larmic.azure.service.HelloServiceDelegate
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
-import org.koin.java.KoinJavaComponent.inject
 import java.util.*
 
 class HelloAzureFunction : KoinComponent {
@@ -30,7 +29,7 @@ class HelloAzureFunction : KoinComponent {
         context.logger.info("HTTP trigger processed a ${request.httpMethod.name} request.")
 
         val name = request.queryParameters["name"]
-        val response =  helloServiceDelegate.sayHello(name)
+        val response =  helloServiceDelegate sayHelloTo name
 
         return request
             .createResponseBuilder(HttpStatus.OK)
