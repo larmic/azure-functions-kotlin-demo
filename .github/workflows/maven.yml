@@ -39,4 +39,4 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: ${{ matrix.java }}
-      - run: mvn failsafe:integration-test
+      - run: mvn test-compile failsafe:integration-test failsafe:verify
