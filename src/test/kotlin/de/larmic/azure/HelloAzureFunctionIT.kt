@@ -40,7 +40,7 @@ class HelloAzureFunctionIT {
         val response = helloAzureFunction.run(requestMock, executionContextMock)
 
         response.status shouldBe HttpStatus.OK
-        response.body shouldBe "Hello azure functions!!"
+        response.body shouldBe "Hello azure functions!"
     }
 
     @Test
