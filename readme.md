@@ -29,7 +29,7 @@ $ git clone https://github.com/larmic/azure-functions-kotlin-demo
 
 $ mvn clean test                    # Compiles codes and runs unit tests
 $ mvn clean package                 # Like test but also build local artifact
-$ mvn clean package DskipTests      # Build local artifact but skips tests
+$ mvn clean package -DskipTests     # Build local artifact but skips tests
 $ mvn clean verify                  # Like package but also runs integration tests
 ```
 
