@@ -21,7 +21,7 @@
         <java.version>17</java.version>
 
         <!-- azure functions -->
-        <functions.plugin.version>1.23.0</functions.plugin.version>
+        <functions.plugin.version>1.24.0</functions.plugin.version>
         <functions.version>3.0.0</functions.version>
         <stagingDirectory>${project.build.directory}/azure-functions/${functionAppName}</stagingDirectory>
         <functionAppName>test-larmic</functionAppName>
