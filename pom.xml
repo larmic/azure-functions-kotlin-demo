@@ -22,7 +22,7 @@
 
         <!-- azure functions -->
         <functions.plugin.version>1.28.0</functions.plugin.version>
-        <functions.version>3.0.0</functions.version>
+        <functions.version>3.1.0</functions.version>
         <stagingDirectory>${project.build.directory}/azure-functions/${functionAppName}</stagingDirectory>
         <functionAppName>test-larmic</functionAppName>
         <functionAppRegion>westeurope</functionAppRegion>
