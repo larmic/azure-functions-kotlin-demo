@@ -29,7 +29,7 @@
         <functionResourceGroup>java-functions-group</functionResourceGroup>
 
         <!-- testing -->
-        <junit-jupiter.version>5.10.2</junit-jupiter.version>
+        <junit-jupiter.version>5.13.4</junit-jupiter.version>
         <mockk.version>1.13.11</mockk.version>
         <kotest-assertions-core-jvm.version>5.9.1</kotest-assertions-core-jvm.version>
         <koin.version>3.5.6</koin.version>
