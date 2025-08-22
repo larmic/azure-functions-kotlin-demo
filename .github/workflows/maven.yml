@@ -17,7 +17,7 @@ jobs:
     name: Java ${{ matrix.java }} build with tests
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v5
       - name: Compile with java version ${{ matrix.java }}
         uses: actions/setup-java@v3
         with:
@@ -25,7 +25,7 @@ jobs:
           java-version: ${{ matrix.java }}
       - run: mvn compile
 
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v5
       - name: Unit tests with java version ${{ matrix.java }}
         uses: actions/setup-java@v3
         with:
@@ -33,7 +33,7 @@ jobs:
           java-version: ${{ matrix.java }}
       - run: mvn test
 
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v5
       - name: Integration tests with java version ${{ matrix.java }}
         uses: actions/setup-java@v3
         with:
